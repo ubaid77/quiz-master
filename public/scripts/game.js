@@ -9,7 +9,17 @@ var allQuestions = [],
     progressBar = document.getElementById("progress"),
     quizCategory = localStorage.getItem("category"),
     quizDifficulty = localStorage.getItem("difficulty");
-    quizUrl = "https://opentdb.com/api.php?amount=10&category="+quizCategory+"&difficulty="+quizDifficulty;
+    quizUrl = "";
+
+    if(quizCategory=="any" && quizDifficulty=="any"){
+        quizUrl = "https://opentdb.com/api.php?amount=10"
+    }else if(quizCategory=="any"){
+        quizUrl = "https://opentdb.com/api.php?amount=10&difficulty="+quizDifficulty
+    }else if(quizDifficulty=="any"){
+        quizUrl = "https://opentdb.com/api.php?amount=10&category="+quizCategory
+    }else{
+        quizUrl = "https://opentdb.com/api.php?amount=10&category="+quizCategory+"&difficulty="+quizDifficulty
+    }
 
 startGame()
 
