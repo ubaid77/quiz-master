@@ -12,6 +12,7 @@ var allQuestions = [],
     quizUrl = "https://opentdb.com/api.php?amount=10&category="+quizCategory+"&difficulty="+quizDifficulty;
 
 startGame()
+
 async function getData(){
     await fetch(quizUrl)
     .then((response) => {
